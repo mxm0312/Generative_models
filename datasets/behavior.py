@@ -7,7 +7,7 @@ from torch.utils.data import Dataset, DataLoader, Subset
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.decomposition import PCA
 
-PCA_COMPONENTS = 200
+PCA_COMPONENTS = 105
 
 class BehaviourDataset(Dataset):
     """Behaviour dataset."""
