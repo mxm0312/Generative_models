@@ -15,7 +15,7 @@ def plot_train(train_loss):
     axes.legend()
 
 """ Show latent space """
-def plot_latent(loader, model):
+def plot_latent(loader, model, classes=True):
     x = []
     y = []
     targets = []
@@ -25,9 +25,11 @@ def plot_latent(loader, model):
         x.append(z[0][0])
         y.append(z[0][1])
         targets.append(Y_batch[0])
-
-    plt.scatter(x, y, c=targets, cmap='tab10')
-    plt.colorbar()
+    if classes:
+        plt.scatter(x, y, c=targets, cmap='tab10')
+        plt.colorbar()
+    else:
+        plt.scatter(x, y)
 
 def plot_train(train_loss, val_loss, val_accuracy):
     fig, axes = plt.subplots(1, 2, figsize=(15, 5))

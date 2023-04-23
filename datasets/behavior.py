@@ -12,7 +12,7 @@ PCA_COMPONENTS = 105
 class BehaviourDataset(Dataset):
     """Behaviour dataset."""
 
-    def __init__(self, csv_file, transform=None):
+    def __init__(self, csv_file, harmful_only=False, transform=None):
         """
         Args:
             csv_file (string): Path to the csv file behaviour
@@ -23,6 +23,8 @@ class BehaviourDataset(Dataset):
         # read csv
         df = pd.read_csv(csv_file)
         df = df.drop(['Unnamed: 0'], axis=1)
+        if harmful_only:
+            df = df[df['tag'] == 1]
         data = df.to_numpy(dtype='float')
 
         self.target = data[:, -1]
