@@ -33,7 +33,6 @@ def plot_latent(loader, model, classes=True):
 
 def plot_train(train_loss, val_loss, val_accuracy):
     fig, axes = plt.subplots(1, 2, figsize=(15, 5))
-
     axes[0].set_title('Loss')
     axes[0].plot(train_loss, label='train')
     axes[0].plot(val_loss, label='validation')
@@ -41,3 +40,8 @@ def plot_train(train_loss, val_loss, val_accuracy):
 
     axes[1].set_title('validation accuracy')
     axes[1].plot(val_accuracy)
+
+def plot_train(train_loss):
+    fig, axes = plt.subplots(1, 1, figsize=(5, 5))
+    axes.set_title('Loss')
+    axes.plot(train_loss, label='train')
